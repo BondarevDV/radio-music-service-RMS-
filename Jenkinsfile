@@ -17,7 +17,7 @@ pipeline {
                 echo " ============== docker login =================="
                 withCredentials([usernamePassword(credentialsId: 'cred-trb179724', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
-                    docker login -u $USERNAME -p $PASSWORD http://127.0.0.1:8081/repository/bdv-docker-registry:5000
+                    docker login -u $USERNAME -p $PASSWORD http://127.0.0.1:8081
                     """
                 }
             }
