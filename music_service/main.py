@@ -16,6 +16,11 @@ app = FastAPI()
 app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 
+
+@app.get('/')
+def home():
+    return {"key": "hello"}
+
 @app.post("/user/", response_model=SchemaUser)
 def create_user(user: SchemaUser):
     db_user = ModelUser(
